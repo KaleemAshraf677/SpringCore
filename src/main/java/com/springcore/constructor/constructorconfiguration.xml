@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd"
+ xmlns:c="http://www.springframework.org/schema/c">     <!-- constructor schema only p changes to c -->
+ 
+ 
+ <bean class="com.springcore.constructor.Certificate" name="C"
+  c:course="Java Full stack developer" c:duration="4"/>
+  
+ <!-- 
+ <bean class="com.springcore.constructor.Person" name="human"
+     c:name="Kaleem Ashraf" c:address="Lucknow" c:id="12" c:certi-ref="C"/>
+  --> 
+   
+ <!-- For initializing constructor we use below tag. by default constructor data type is "String".we can also specify constructor data type by using type="double" attribute.and during injection of constructor we can follow all the methods and tricks like primitive data types and collections,Reference -->
+   
+ <bean class="com.springcore.constructor.Person" name="human">  
+     
+      <constructor-arg><value>Kaleem Ashraf</value></constructor-arg>
+      <constructor-arg value="Faizullaganj,Lucknow"/>
+      <constructor-arg value="12" type="int"/>
+      <constructor-arg ref="C"/>
+      <constructor-arg>
+              <list>
+                    <value>Blooming Flower High School</value>
+                    <value>Jesus and Mary Inter College</value>
+                    <value>BrightLand Inter College</value>
+                    <value>R.R. Institute of Modern Technology</value>
+                    <null/>
+              </list>
+      </constructor-arg>
+           
+ </bean> 
+ 
+ <bean class="com.springcore.constructor.Addition" name="ambiguity">  
+     
+     <constructor-arg value="4" type="int" index="1"/>   <!-- By default String constructor is execute.If not find String constructor than. (By order concept folows) Constructor is executing one by one  -->
+     <constructor-arg value="8" type="int" index="0"/>
+   
+</bean> 
+   
+ </beans>

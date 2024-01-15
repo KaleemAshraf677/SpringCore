@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:util="http://www.springframework.org/schema/util"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+    
+   
+    <!-- standalone collection:we can use this standalone collection again and again in our bean through ref="" tag-->
+    
+    <!-- standalone list -->
+    
+    <util:list list-class="java.util.LinkedList" id="101">
+         
+               <value>Amman Siddique</value>
+               <value>Kaleem Ashraf</value>
+               <value>Ramsha Praveen</value>
+               <value>Sifat Zehra</value>
+    
+    </util:list>
+    
+    <!-- standalone map -->
+    
+    <util:map map-class="java.util.HashMap" id="110">
+    
+          <entry key="Full Stack Java" value="2000"/>
+          <entry key="Data Analytics" value="3000"/>
+          <entry key="Data Science" value="4000"/>
+          <entry key="Web Development" value="3000"/>
+    
+    </util:map>
+    
+    <util:properties id="jdbc">
+          
+          <prop key="Driver">com.mysql.cj.jdbc.Driver</prop>
+          <prop key="url">jdbc:mysql://localhost:3306/db_name</prop>
+          <prop key="username">root</prop>
+          <prop key="password">root</prop>
+    
+    </util:properties>
+    
+    <bean class="com.springcore.standalone.collection.Person" name="per">
+        
+        <property name="friends" ref="101"/>
+        <property name="feestructure" ref="110"/>
+        <property name="connection" ref="jdbc"/>
+              
+    </bean>
+    
+</beans>

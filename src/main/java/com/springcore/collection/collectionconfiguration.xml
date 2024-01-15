@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+ 
+ 
+ 
+ <bean class="com.springcore.collection.Employee" name="Emp">
+ 
+     <property name="name" value="Kaleem Ashraf"/>
+     
+     <property name="phones">
+         <list>
+               <value>9569497230</value>
+               <value>9555657181</value>
+               <value>9450805470</value>
+               <null/>
+               <value>9415542027</value>
+               <value>9648486682</value>  <!-- If in list contains only 1 element than no need to specify <list>,<set> tags-->
+               <value>9839921224</value>   <!-- <property name="phones"> <value>9569497230</value> </property> -->        
+         </list>
+     </property>
+     
+     <property name="addresses">
+          <set>
+                <value>Lucknow</value>
+                <value>Basti</value>
+                <value>Lucknow</value>
+                <value>Dehli</value>
+          </set>
+     </property>
+     
+     <property name="courses">
+           <map>
+                <entry key="Java full stack" value="6 months"/>
+                <entry key="Frontent Developer" value="3 months"/>
+                <entry key="Backend developer" value="3 months"/>
+           </map>
+     </property>
+     
+     <property name="id">
+          <props>
+                 <prop key="username">Kaleem Ashraf</prop>
+                 <prop key="password">Up32@kf57</prop>
+          </props>
+     </property>
+         
+   </bean>
+   
+ </beans>

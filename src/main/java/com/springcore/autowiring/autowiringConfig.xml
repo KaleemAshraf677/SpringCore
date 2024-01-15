@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+ 
+ <context:annotation-config/>  <!-- this tag is used to enable all the annotations in our project -->
+ 
+ <bean class="com.springcore.autowiring.Address" name="add5">
+     
+     <property name="city" value="Lucknow"/>
+     <property name="country" value="India"/>
+ </bean>
+ 
+ 
+   <bean class="com.springcore.autowiring.Address" name="add">
+     
+     <property name="city" value="Noida"/>
+     <property name="country" value="India"/>
+ </bean>  
+ 
+ <!-- autowiring can be done by 3 ways through xml   1.byName  2.byType  3.constructor -->
+
+ <!--  <bean class="com.springcore.autowiring.Emp" name="em" autowire="byName"/>   -->
+  
+ <!--  <bean class="com.springcore.autowiring.Emp" name="em" autowire="byType"/>  -->
+  
+ <!-- <bean class="com.springcore.autowiring.Emp" name="em" autowire="constructor"/>  -->    <!-- Address(Type),add(name) both should be matched in configuration file  -->
+  
+  <bean class="com.springcore.autowiring.Emp" name="em"/>
+  
+     
+ </beans>
